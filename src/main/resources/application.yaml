@@ -5,7 +5,7 @@
 
 spring:
   application:
-    name: ead-authuser-service
+    name: ead-course-service
   config:
     import: 'configserver:'
   cloud:
@@ -32,17 +32,20 @@ spring:
 #  rabbitmq:
 #    addresses: amqps://lqqrjfiw:gfCDob9i20lCiR2BCLyrZJTzlf60YHld@whale.rmq.cloudamqp.com/lqqrjfiw
 #
-#ead:
-#  api:
-#    url:
-#      authuser: 'http://ead-authuser-service/ead-authuser'
-#  broker:
-#    exchange:
-#      userEventExchange: ead.userevent
-#    queue:
-#      userEventQueue:
-#        name: ead.userevent.ms.course
-#
+ead:
+  api:
+    url:
+      authuser: 'http://ead-authuser-service/ead-authuser'
+  broker:
+    exchange:
+      userEventExchange: ead.userevent
+      notificationCommandExchange: ead.notificationcommand
+    queue:
+      userEventQueue:
+        name: ead.userevent.ms.course
+    key:
+        notificationCommandKey: ms.notification
+
 #eureka:
 #  client:
 #    service-url:
